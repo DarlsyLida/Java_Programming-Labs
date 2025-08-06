@@ -8,17 +8,6 @@ package Thread;
  *
  * @author fymsc49
  */
-class A implements Runnable{
-    public void run(){
-        System.out.println("Thread A is running");
-    }
-}
-
-class B implements Runnable{
-    public void run(){
-        System.out.println("Thread B is running");
-    }
-}
 public class thread_lifecycle {
     public static void main(String [] args){
         
@@ -33,7 +22,8 @@ public class thread_lifecycle {
         
         
         // blocked state of thread B
-        try{
+        try
+        {
             threadA.sleep(millis:1000);
         }
         
@@ -41,8 +31,42 @@ public class thread_lifecycle {
             e.printStackTrace();
         }
         
+        threadB.start();
+        System.out.println(x:"Main Thread End");
+        
         
         
     }
     
 }
+class A extends Thread{
+    public void run(){
+        System.out.println(x:"Thread A");
+        System.out.println(x:"i in Thread A");
+        for (int i =1; i<=5; i++){
+            System.out.println("i= "+i);
+            try{
+                Thread.sleep(millis:1000);
+            }
+            catch(InterruptedExceptin e){
+                e.printStackTrace();
+            }
+            
+        }
+        System.out.println(x:"Thread A Completed");
+    }
+}
+
+class B extends Thread{
+    public void run(){
+        System.out.println(x:"Thread B");
+        System.out.println(x:"i in Thread B");
+        for (int i =1; i<=5; i++){
+            System.out.println("i= "+i);
+            
+            
+        }
+        System.out.println(x:"Thread B Completed");
+    }
+}
+
