@@ -12,7 +12,7 @@ package com.mycompany.unit2oop;
 
 // Parent class
 class Shape {
-    // You can add common properties or methods here if needed
+
 }
 
 // Child class for Rectangle
